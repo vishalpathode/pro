@@ -18,12 +18,9 @@ public class PerLoginController {
 	
 	@PostMapping(value = "/registration")
 	public ResponseEntity<Response> registration(@RequestBody User user){
-		if(user.getFirstname().equals("vishal")) {
-			throw new RuntimeException("VISHAL  NOT  ALLOWED.");
-		}
 		User dbUser = userService.save(user);
 		if(dbUser!=null) {
-			 return new ResponseEntity<Response>(new Response("User is saved successfully",HttpStatus.INTERNAL_SERVER_ERROR.toString()),HttpStatus.OK);
+			 return new ResponseEntity<Response>(new Response("User is saved successfully",HttpStatus.OK.toString()),HttpStatus.OK);
 		}
 		return null;
 	}

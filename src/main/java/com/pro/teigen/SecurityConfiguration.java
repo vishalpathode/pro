@@ -57,10 +57,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter  {
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 		.authorizeRequests()
 		//.antMatchers("/**").permitAll()
-		.antMatchers("/registration").permitAll() // .permitAll() -> token is not needed.
+		.antMatchers("/registration").permitAll()
 		.antMatchers("/login").permitAll()
-				//.antMatchers("/users").hasAnyRole("ADMIN","USER") // defining multiple access roles
-		.antMatchers("/users").access("hasRole('ADMIN')") // either we can use @PreAuthorize on API call method or .access() here
+		.antMatchers("/getUser").hasAnyRole("ADMIN","USER")
+		.antMatchers("/users").access("hasRole('ADMIN')")
 		.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
 		.anyRequest().authenticated();  //token is needed.
 		

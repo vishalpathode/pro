@@ -20,11 +20,6 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping(value = "/users")
-	/* 
-	 * either we can use @PreAuthorize here(with API call method) or antMatchers().access() in configure() of 
-	 * SecurityConfiguration file to give access to particular role
-	*/
-	//@PreAuthorize("hasRole('ADMIN')") 
 	public ResponseEntity<List<User>> getAllUsers(){
 		List<User> users = userService.findAll();
 		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
@@ -32,7 +27,6 @@ public class UserController {
 
 
 	@GetMapping(value = "/getUser")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<User> getUser(Principal principal){
 		User user = userService.getUserByEmail(principal.getName());
 		return new ResponseEntity<User>(user,HttpStatus.OK);
