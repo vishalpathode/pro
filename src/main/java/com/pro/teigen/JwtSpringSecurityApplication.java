@@ -10,7 +10,7 @@ import org.springframework.web.filter.CorsFilter;
 @SpringBootApplication
 public class JwtSpringSecurityApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(JwtSpringSecurityApplication.class, args);;;;;;;;;;;
+		SpringApplication.run(JwtSpringSecurityApplication.class, args)     ;;;;;;;;;;;
 	}
 
 	@Bean
