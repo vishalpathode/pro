@@ -2,7 +2,7 @@ package com.pro.teigen.controller;
 
 import com.pro.teigen.domain.Response;
 import com.pro.teigen.model.User;
-import com.pro.teigen.service.UserService;
+import com.pro.teigen.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PerLoginController {
 
 	@Autowired
-	private UserService userService;
+	private UserDao userDao;
 	
 	@PostMapping(value = "/registration")
 	public ResponseEntity<Response> registration(@RequestBody User user){
-		User dbUser = userService.save(user);
+		User dbUser = userDao.save(user);
 		if(dbUser!=null) {
 			 return new ResponseEntity<Response>(new Response("User is saved successfully",HttpStatus.OK.toString()),HttpStatus.OK);
 		}

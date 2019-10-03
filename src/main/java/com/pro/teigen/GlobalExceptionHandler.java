@@ -12,14 +12,12 @@ public class GlobalExceptionHandler {
 
 	
 	@ExceptionHandler(value = {RuntimeException.class})
-	public ResponseEntity<Response> handleRuntinmeException(RuntimeException r){
-		
+	public ResponseEntity<Response> handleRuntimeException(RuntimeException r){
 		return new ResponseEntity<Response>(new Response(r.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR.toString()),HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	@ExceptionHandler(value = {Forbidden.class})
 	public ResponseEntity<Response> handleForbiddenException(Forbidden f){
-		
 		return new ResponseEntity<Response>(new Response(f.getMessage(),HttpStatus.FORBIDDEN.toString()),HttpStatus.FORBIDDEN);
 	}
 }

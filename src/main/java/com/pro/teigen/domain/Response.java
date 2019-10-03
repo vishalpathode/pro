@@ -12,10 +12,10 @@ public class Response implements Serializable {
 	private String message;
 	private String status;
 	
-	public Response(String message, String internalServerError) {
+	public Response(String message, String error) {
 		super();
 		this.message = message;
-		this.status = internalServerError;
+		this.status = error;
 	}
 
 	public String getMessage() {
