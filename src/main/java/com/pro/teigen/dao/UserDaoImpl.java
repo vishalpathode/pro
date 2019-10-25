@@ -5,7 +5,6 @@ import com.pro.teigen.repository.UserRepository;
 import com.pro.teigen.util.PasswordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
