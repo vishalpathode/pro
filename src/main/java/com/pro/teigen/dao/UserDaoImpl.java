@@ -23,6 +23,7 @@ public class UserDaoImpl implements UserDao{
 		user.setCreatedDate(new Date());
 		user.setEnabled(true);
 		user.setRole(USER_ROLE);
+
 		return userRepository.save(user);
 	}
 
