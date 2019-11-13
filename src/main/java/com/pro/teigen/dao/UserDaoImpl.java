@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public class UserDaoImpl implements UserDao{
 
+	static String USER_ROLE = "USER";
 	@Autowired
 	private UserRepository userRepository;
 
@@ -20,6 +21,8 @@ public class UserDaoImpl implements UserDao{
 		String password = PasswordUtil.getPasswordHash(user.getPassword());
 		user.setPassword(password);
 		user.setCreatedDate(new Date());
+		user.setEnabled(true);
+		user.setRole(USER_ROLE);
 		return userRepository.save(user);
 	}
 
